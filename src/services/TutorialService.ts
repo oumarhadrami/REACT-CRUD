@@ -10,7 +10,7 @@ const get = (id: any) => {
 };
 
 const create = (data: ITutorialData) => {
-    return http.post<ITutorialData>("/tutorials", data);
+    return http.post<ITutorialData>("/tutorials/", data);
 };
 
 const update = (id: any, data: ITutorialData) => {
