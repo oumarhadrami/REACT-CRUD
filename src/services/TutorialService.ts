@@ -14,11 +14,11 @@ const create = (data: ITutorialData) => {
 };
 
 const update = (id: any, data: ITutorialData) => {
-    return http.put<any>(`/tutorials/${id}`, data);
+    return http.put<any>(`/tutorials/${id}/`, data);
 };
 
 const remove = (id: any) => {
-    return http.delete<any>(`/tutorials/${id}`);
+    return http.delete<any>(`/tutorials/${id}/`);
 };
 
 const removeAll = () => {
