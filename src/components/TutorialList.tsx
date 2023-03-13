@@ -11,9 +11,9 @@ function TutorialsList() {
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
   const [searchTitle, setSearchTitle] = useState<string>("");
 
-  const retrieveTutorials = async () => {
+  const retrieveTutorials = async (search: string) => {
     try {
-      let response = await TutorialService.getAll();
+      let response = await TutorialService.getAll(search);
       setTutorials(response.data);
       console.log(response.data);
     } catch (e) {
@@ -22,8 +22,8 @@ function TutorialsList() {
   };
 
   useEffect(() => {
-    retrieveTutorials();
-  }, []);
+    retrieveTutorials(searchTitle);
+  }, [searchTitle]);
 
   const onChangeSearchTitle = (e: ChangeEvent<HTMLInputElement>) => {
     const searchTitle = e.target.value;
@@ -31,7 +31,7 @@ function TutorialsList() {
   };
 
   const refreshList = () => {
-    // retrieveTutorials();
+    retrieveTutorials('');
     setCurrentTutorial(null);
     setCurrentIndex(-1);
   };

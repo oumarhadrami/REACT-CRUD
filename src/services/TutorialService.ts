@@ -1,8 +1,8 @@
 import http from "../http-common";
 import ITutorialData from "../@types/Tutorial";
 
-const getAll = () => {
-    return http.get<Array<ITutorialData>>("/tutorials");
+const getAll = (search: string) => {
+    return http.get<Array<ITutorialData>>(`/tutorials?search=${search}`);
 };
 
 const get = (id: any) => {
